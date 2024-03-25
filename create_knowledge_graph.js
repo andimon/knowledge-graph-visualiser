@@ -147,6 +147,12 @@ function visualiseGraph(knowledge_graph_json) {
         'text-valign': 'center',
         'text-halign': 'center',
         'background-color': 'cyan',
+      })
+      .selector('node[type = "KnowledgeAssetFeature"]')
+      .css({
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'background-color': 'green',
       }),
 
     elements: {
