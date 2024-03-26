@@ -71,10 +71,9 @@ function getNodes(triples) {
 | PARSE RDF GRAPH |
 -------------------
  */
-function getAbstractGraph(turtle_serialisation) {
+function get_abstract_graph(turtle_serialisation) {
   return new Promise((resolve, reject) => {
     let triples = [];
-    let nodes = [];
     parser.parse(turtle_serialisation, function (error, triple, prefixes_) {
       if (error) {
         reject(error); // Reject the Promise if there's an error
@@ -192,8 +191,8 @@ upload.addEventListener('change', () => {
   let fr = new FileReader();
   fr.readAsText(upload.files[0]);
   fr.onload = function () {
-    getAbstractGraph(fr.result).then(result => {
-      visualiseGraph(result)
+    get_abstract_graph(fr.result).then(graphObject => {
+      visualiseGraph(graphObject)
     }).catch(error => {
       console.error('Error:', error); // Handle errors here
     })
